@@ -18,21 +18,21 @@ from .registry import (ATTENTION, FEEDFORWARD_NETWORK, POSITIONAL_ENCODING,
                        TRANSFORMER_LAYER, TRANSFORMER_LAYER_SEQUENCE)
 
 # Avoid BC-breaking of importing MultiScaleDeformableAttention from this file
-try:
-    from mmcv.ops.multi_scale_deform_attn import \
-        MultiScaleDeformableAttention  # noqa F401
-    warnings.warn(
-        ImportWarning(
-            '``MultiScaleDeformableAttention`` has been moved to '
-            '``mmcv.ops.multi_scale_deform_attn``, please change original path '  # noqa E501
-            '``from mmcv.cnn.bricks.transformer import MultiScaleDeformableAttention`` '  # noqa E501
-            'to ``from mmcv.ops.multi_scale_deform_attn import MultiScaleDeformableAttention`` '  # noqa E501
-        ))
+# try:
+#     from mmcv.ops.multi_scale_deform_attn import \
+#         MultiScaleDeformableAttention  # noqa F401
+#     warnings.warn(
+#         ImportWarning(
+#             '``MultiScaleDeformableAttention`` has been moved to '
+#             '``mmcv.ops.multi_scale_deform_attn``, please change original path '  # noqa E501
+#             '``from mmcv.cnn.bricks.transformer import MultiScaleDeformableAttention`` '  # noqa E501
+#             'to ``from mmcv.ops.multi_scale_deform_attn import MultiScaleDeformableAttention`` '  # noqa E501
+#         ))
 
-except ImportError:
-    warnings.warn('Fail to import ``MultiScaleDeformableAttention`` from '
-                  '``mmcv.ops.multi_scale_deform_attn``, '
-                  'You should install ``mmcv-full`` if you need this module. ')
+# except ImportError:
+#     warnings.warn('Fail to import ``MultiScaleDeformableAttention`` from '
+#                   '``mmcv.ops.multi_scale_deform_attn``, '
+#                   'You should install ``mmcv-full`` if you need this module. ')
 
 
 def build_positional_encoding(cfg, default_args=None):
